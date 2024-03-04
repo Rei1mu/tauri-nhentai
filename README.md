@@ -1,5 +1,7 @@
 ### 第一步
-cargo tauri android init
+```npm i
+npm build
+cargo tauri android init```
 
 ### 第二步
 #### 将src-tauri/init/ 目录下的
