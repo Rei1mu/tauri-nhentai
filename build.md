@@ -7,9 +7,9 @@ cargo tauri android init
 ### 第二步
 #### 将src-tauri/init/ 目录下的
 ```
-upload-keystore.jks
 key.properties
 build.gradle.kts
+upload-keystore.jks
 ```
 文件复制并放入init生成的src-tauri/gen/android/app/目录下
 
