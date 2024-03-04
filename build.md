@@ -1,7 +1,8 @@
 ### 第一步
 ```npm i
 npm build
-cargo tauri android init```
+cargo tauri android init
+```
 
 ### 第二步
 #### 将src-tauri/init/ 目录下的
@@ -10,11 +11,15 @@ upload-keystore.jks
 key.properties
 build.gradle.kts
 ```
-复制并放入init生成的
+文件复制并放入init生成的src-tauri/gen/android/app/目录下
+
+
+
+#### 生成icon，按照根目录的app-icon.png
+
 ```
-src-tauri/gen/android/app/
+cargo tauri icon
 ```
-目录下
 
 ### 第三步 编译
 #### android 无target则universe(x86,arm通用).apk安装包
@@ -48,4 +53,3 @@ keytool -genkey -v -keystore .\init\upload-keystore.jks -storetype JKS -keyalg R
 ```
 keytool -importkeystore -srckeystore .\init\upload-keystore.jks -destkeystore .\init\upload-keystore.jks -deststoretype pkcs12
 ```
-cargo tauri icon
