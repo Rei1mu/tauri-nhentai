@@ -21,6 +21,25 @@ upload-keystore.jks
 cargo tauri icon
 ```
 
+
+
+### 安卓签名生成
+#### 如何生成sign,jks/keystore格式 (自行替换)
+在src-tauri目录下执行cmd
+```
+cd src-tauri
+keytool -genkey -v -keystore .\init\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+```
+
+#### pkcs12标准
+```
+keytool -importkeystore -srckeystore .\init\upload-keystore.jks -destkeystore .\init\upload-keystore.jks -deststoretype pkcs12
+```
+
+
+
+
+
 ### 第三步 编译
 #### android 无target则universe(x86,arm通用).apk安装包
 ```
@@ -39,17 +58,3 @@ cargo tauri build --target aarch64-pc-windows-msvc --bundles nsis
 
 #### linux 安装包
 自己填
-
-
-### 安卓签名生成
-#### 生成sign,jks/keystore格式
-在src-tauri目录下执行cmd
-```
-cd src-tauri
-keytool -genkey -v -keystore .\init\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
-```
-
-#### pkcs12标准
-```
-keytool -importkeystore -srckeystore .\init\upload-keystore.jks -destkeystore .\init\upload-keystore.jks -deststoretype pkcs12
-```
